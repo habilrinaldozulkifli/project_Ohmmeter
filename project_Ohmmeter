@@ -19,11 +19,11 @@ void loop() {
     raw = analogRead(A0);
     rumus = raw * vin;
     vout = rumus / 1023;
-    r2 = (vout * r2)/(vin - vout);
+    r2 = (vout * r1)/(vin - vout);
     
   Serial.print(" R2 : ");
   Serial.println(r2);
   Serial.print(" Vout : ");
   Serial.println(vout);
-  delay(500);
+  delay(1000);
   }
