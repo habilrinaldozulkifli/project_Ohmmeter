@@ -1,0 +1,29 @@
+int analogPin = 0;
+int vin = 5;
+int raw=0;
+float vout = 0;
+float r1 = 10000;
+float r2 = 0;
+float rumus = 0;
+
+void setup() {
+  Serial.begin(9600);
+  Serial.println("======== OHM METER USING ARDUINO ========");
+  Serial.println(" R1 : 10K ");
+  Serial.println(" R2 : ");
+  Serial.println(" Vin : 5V ");
+  Serial.println(" Vout2 : "); 
+}
+
+void loop() {
+    raw = analogRead(A0);
+    rumus = raw * vin;
+    vout = rumus / 1023;
+    r2 = (vout * r2)/(vin - vout);
+    
+  Serial.print(" R2 : ");
+  Serial.println(r2);
+  Serial.print(" Vout : ");
+  Serial.println(vout);
+  delay(500);
+  }
